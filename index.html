@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Portfólio profissional de treinador de Jiu-Jitsu"
+    >
+
+    <title>Professor | Jiu-Jitsu</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
+
+    <header class="header">
+
+        <a href="#" class="logo">
+            <span>JIU</span>
+            <strong>PRO</strong>
+        </a>
+
+        <nav class="nav">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#campeoes">Campeões</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <a href="#contato" class="header-button">
+            Treine comigo
+        </a>
+
+        <button class="menu-button" id="menuButton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- ==========================================
+             HERO
+        =========================================== -->
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-background"></div>
+
+            <div class="hero-content">
+
+                <span class="hero-tag">
+                    PROFESSOR • ATLETA • MENTOR
+                </span>
+
+                <h1>
+                    DISCIPLINA.
+                    <br>
+                    <span>DOMÍNIO.</span>
+                    <br>
+                    LEGADO.
+                </h1>
+
+                <p>
+                    Mais do que ensinar Jiu-Jitsu, desenvolvo
+                    atletas preparados para vencer dentro
+                    e fora dos tatames.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#campeoes" class="btn btn-primary">
+                        Conheça meus campeões
+                        <span>→</span>
+                    </a>
+
+                    <a href="#sobre" class="btn btn-outline">
+                        Minha história
+                    </a>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div class="stat">
+                        <strong>15+</strong>
+                        <span>Anos de experiência</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>80+</strong>
+                        <span>Medalhas conquistadas</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>20+</strong>
+                        <span>Campeões formados</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image-wrapper">
+
+                <div class="hero-glow"></div>
+
+                <img
+                    src="img/Mestre_Paulo.png"
+                    alt="Professor Mestre Paulo"
+                    class="hero-image"
+                >
+
+                <div class="image-label">
+                    <span></span>
+                    BLACK BELT
+                </div>
+
+            </div>
+
+            <div class="scroll-indicator">
+                <span></span>
+                SCROLL
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             SOBRE
+        =========================================== -->
+
+        <section class="about section" id="sobre">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <div class="about-image">
+
+                <img
+                    src="img/mestre_paulo2.png"
+                    alt="Professor Mestre Paulo"
+                >
+
+                <div class="about-image-overlay"></div>
+
+                <div class="belt-card">
+                    <span>FAIXA</span>
+                    <strong>PRETA</strong>
+                </div>
+
+            </div>
+
+            <div class="about-content">
+
+                <span class="section-label">
+                    MINHA HISTÓRIA
+                </span>
+
+                <h2>
+                    O JIU-JITSU
+                    <span>TRANSFORMOU</span>
+                    MINHA VIDA.
+                </h2>
+
+                <p class="about-lead">
+                    Meu propósito é transformar pessoas através
+                    da arte suave, construindo não apenas
+                    lutadores, mas seres humanos mais fortes.
+                </p>
+
+                <p>
+                    Ao longo da minha trajetória, tive a oportunidade
+                    de competir, ensinar e acompanhar atletas em
+                    diferentes níveis. Cada treino representa uma
+                    oportunidade de evolução.
+                </p>
+
+                <p>
+                    Meu método combina técnica, estratégia,
+                    preparação física e, principalmente, disciplina.
+                    O resultado aparece no tatame, mas a verdadeira
+                    transformação acontece na vida.
+                </p>
+
+                <div class="about-signature">
+                    <strong>Professor</strong>
+                    <span>Faixa Preta de Jiu-Jitsu</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CAMPEÕES
+        =========================================== -->
+
+        <section class="champions section" id="campeoes">
+
+            <div class="champions-header">
+
+                <div>
+                    <span class="section-label">
+                        MEUS ALUNOS
+                    </span>
+
+                    <h2>
+                        CAMPEÕES
+                        <span>QUE FIZERAM HISTÓRIA.</span>
+                    </h2>
+                </div>
+
+                <div class="carousel-controls">
+
+                    <button
+                        class="carousel-button"
+                        id="prevButton"
+                        aria-label="Anterior"
+                    >
+                        ←
+                    </button>
+
+                    <button
+                        class="carousel-button"
+                        id="nextButton"
+                        aria-label="Próximo"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="carousel">
+
+                <div class="carousel-track" id="carouselTrack">
+
+                    <!-- CARD 1 -->
+
+                    <article class="champion-card" tabindex="0" role="button" aria-haspopup="dialog">
+
+                        <img
+                            src="images/aluno-3.jpg"
+                            alt="Aluno campeão"
+                        >
+
+                        <div class="card-gradient"></div>
+
+                        <div class="card-content">
+
+                            <span class="card-number">
+                                01
+                            </span>
+
+                            <span class="card-category">
+                                CAMPEÃO BRASILEIRO
+                            </span>
+
+                            <h3>
+                                João Silva
+                            </h3>
+
+                            <p>
+                                 Atleta formado desde a base,
+                                conquistando seu espaço através
+                                de trabalho e dedicação.
+                            </p>
+
+                            <div class="card-achievement">
+                                <button class="view-all" type="button">Ver todos</button>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 2 -->
+
+                    <article class="champion-card" tabindex="0" role="button" aria-haspopup="dialog">
+
+                        <img
+                            src="img/WhatsApp Image 2026-08-18 at 10.03.19.jpeg"
+                            alt="Aluna campeã"
+                        >
+
+                        <div class="card-gradient"></div>
+
+                        <div class="card-content">
+
+                            <span class="card-number">
+                                02
+                            </span>
+
+                            <span class="card-category">
+                                CAMPEÃ INTERNACIONAL
+                            </span>
+
+                            <h3>
+                                Ana Oliveira
+                            </h3>
+
+                            <p>Atleta formado desde a base,
+                                conquistando seu espaço através
+                                de trabalho e dedicação.
+                            </p>
+
+                            <!-- resumo curto exibido no card -->
+                            <p>
+                                Trajetória com múltiplas conquistas em torneios nacionais
+                                e internacionais — medalhas de ouro, prata e bronze.
+                            </p>
+
+                            <!-- conteúdo completo escondido, exibido apenas no modal -->
+                            <div class="card-full" hidden>
+                                <h4>Troféus & Medalhas</h4>
+                                <h5>Troféus</h5>
+                                <ul>
+                                    <li>2 troféu de campeã do ranking da mineirinho costa do sol e rio de janeiro</li>
+                                </ul>
+
+                                <h5>Medalhas de Ouro (13)</h5>
+                                <ul>
+                                    <li>saquarema winter</li>
+                                    <li>cabo frio international Cup</li>
+                                    <li>sul americano</li>
+                                    <li>brasileiro</li>
+                                    <li>cabo frio</li>
+                                    <li>saquerema international Cup</li>
+                                    <li>panamericano</li>
+                                    <li>estadual</li>
+                                    <li>sul fluminense</li>
+                                    <li>nacional gftean</li>
+                                    <li>saquarema winter</li>
+                                    <li>panamericano</li>
+                                    <li>rio international Cup</li>
+                                </ul>
+
+                                <h5>Medalhas de Bronze (8)</h5>
+                                <ul>
+                                    <li>warzone</li>
+                                    <li>mundial</li>
+                                    <li>brasileiro - cbjjo</li>
+                                    <li>brasileiro - cbjjd</li>
+                                    <li>rio Summer National open</li>
+                                    <li>saquarema internacional cup</li>
+                                    <li>word Cup - cbjjo</li>
+                                    <li>rio Summer National open</li>
+                                </ul>
+
+                                <h5>Medalhas de Prata (15)</h5>
+                                <ul>
+                                    <li>rio winter National open</li>
+                                    <li>saquarema internacional cup</li>
+                                    <li>saquarema Summer National open</li>
+                                    <li>estadual</li>
+                                    <li>copa Araruama</li>
+                                    <li>rio international Cup</li>
+                                    <li>saquarema Summer National open</li>
+                                    <li>world novatos Championships</li>
+                                    <li>trofeu Brasil</li>
+                                    <li>sul americano</li>
+                                    <li>saquarema Summer National open</li>
+                                    <li>rei do rio</li>
+                                    <li>pan americano</li>
+                                    <li>rio Summer National open</li>
+                                    <li>cabo frio National open</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-achievement">
+                                <button class="view-all" type="button">Ver todos</button>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 3 -->
+
+                    <article class="champion-card" tabindex="0" role="button" aria-haspopup="dialog">
+
+                        <img
+                            src="images/aluno-3.jpg"
+                            alt="Aluno campeão"
+                        >
+
+                        <div class="card-gradient"></div>
+
+                        <div class="card-content">
+
+                            <span class="card-number">
+                                03
+                            </span>
+
+                            <span class="card-category">
+                                CAMPEÃO ESTADUAL
+                            </span>
+
+                            <h3>
+                                Lucas Santos
+                            </h3>
+
+                            <p>
+                                Atleta formado desde a base,
+                                conquistando seu espaço através
+                                de trabalho e dedicação.
+                            </p>
+
+                            <div class="card-achievement">
+                                <button class="view-all" type="button">Ver todos</button>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 4 -->
+
+                    <article class="champion-card" tabindex="0" role="button" aria-haspopup="dialog">
+
+                        <img
+                            src="images/aluno-4.jpg"
+                            alt="Aluno campeão"
+                        >
+
+                        <div class="card-gradient"></div>
+
+                        <div class="card-content">
+
+                            <span class="card-number">
+                                04
+                            </span>
+
+                            <span class="card-category">
+                                CAMPEÃO NACIONAL
+                            </span>
+
+                            <h3>
+                                Gabriel Costa
+                            </h3>
+
+                            <p>
+                                Resultado de anos de treinamento,
+                                foco e preparação para competir
+                                no mais alto nível.
+                            </p>
+
+                            <div class="card-achievement">
+                                <button class="view-all" type="button">Ver todos</button>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 5 -->
+
+                    <article class="champion-card" tabindex="0" role="button" aria-haspopup="dialog">
+
+                        <img
+                            src="images/aluno-5.jpg"
+                            alt="Aluna campeã"
+                        >
+
+                        <div class="card-gradient"></div>
+
+                        <div class="card-content">
+
+                            <span class="card-number">
+                                05
+                            </span>
+
+                            <span class="card-category">
+                                CAMPEÃ BRASILEIRA
+                            </span>
+
+                            <h3>
+                                Mariana Alves
+                            </h3>
+
+                            <p>
+                                Uma atleta que transformou
+                                dedicação em resultados e
+                                grandes conquistas.
+                            </p>
+
+                            <div class="card-achievement">
+                                <button class="view-all" type="button">Ver todos</button>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <div class="carousel-progress">
+                <span id="progressBar"></span>
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             FILOSOFIA
+        =========================================== -->
+
+        <section class="philosophy section">
+
+            <div class="philosophy-content">
+
+                <span class="section-label">
+                    FILOSOFIA
+                </span>
+
+                <h2>
+                    O TATAME ENSINA
+                    <span>O QUE A VIDA EXIGE.</span>
+                </h2>
+
+                <p>
+                    Respeito. Disciplina. Humildade.
+                    Persistência. Vitória.
+                </p>
+
+            </div>
+
+            <div class="philosophy-grid">
+
+                <div class="philosophy-item">
+                    <span>01</span>
+                    <h3>DISCIPLINA</h3>
+                    <p>
+                        Fazer todos os dias o que precisa
+                        ser feito.
+                    </p>
+                </div>
+
+                <div class="philosophy-item">
+                    <span>02</span>
+                    <h3>ESTRATÉGIA</h3>
+                    <p>
+                        Pensar antes de agir e transformar
+                        técnica em resultado.
+                    </p>
+                </div>
+
+                <div class="philosophy-item">
+                    <span>03</span>
+                    <h3>EVOLUÇÃO</h3>
+                    <p>
+                        Ser melhor hoje do que você era
+                        ontem.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CTA
+        =========================================== -->
+
+        <section class="cta section" id="contato">
+
+            <div class="cta-glow"></div>
+
+            <span class="section-label">
+                PRÓXIMO PASSO
+            </span>
+
+            <h2>
+                PRONTO PARA
+                <span>EVOLUIR?</span>
+            </h2>
+
+            <p>
+                Faça parte da equipe e comece sua transformação.
+            </p>
+
+            <a href="https://wa.me/5500000000000" class="btn btn-primary">
+                Quero treinar
+                <span>→</span>
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            <span>JIU</span>
+            <strong>PRO</strong>
+        </div>
+
+        <p>
+            © 2026 JIU PRO. Todos os direitos reservados.
+        </p>
+
+        <div class="socials">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="YouTube">YT</a>
+        </div>
+
+    </footer>
+
+
+    <!-- Modal para detalhes dos alunos -->
+    <div class="modal" id="cardModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content" role="document" id="modalContent">
+            <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Foto do aluno">
+                <div class="modal-info">
+                    <span class="modal-category" id="modalCategory"></span>
+                    <h3 id="modalName"></h3>
+                    <div id="modalFull" class="modal-full"></div>
+                    <div class="card-achievement" id="modalAchievement"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
