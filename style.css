@@ -708,6 +708,8 @@ button {
     transition: transform 0.6s cubic-bezier(.77,0,.18,1);
 
     cursor: grab;
+    touch-action: pan-y;
+    will-change: transform;
 }
 
 .carousel-track:active {
