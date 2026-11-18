@@ -5,9 +5,11 @@
 const menuButton = document.getElementById("menuButton");
 const nav = document.querySelector(".nav");
 
-menuButton.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
+if (menuButton && nav) {
+    menuButton.addEventListener("click", () => {
+        nav.classList.toggle("active");
+    });
+}
 
 
 /* ==========================================
@@ -17,7 +19,7 @@ menuButton.addEventListener("click", () => {
 document.querySelectorAll(".nav a").forEach(link => {
 
     link.addEventListener("click", () => {
-        nav.classList.remove("active");
+        if (nav) nav.classList.remove("active");
     });
 
 });
@@ -58,12 +60,6 @@ function getVisibleCards() {
 
 }
 
-function getRows() {
-    if (window.innerWidth <= 900) return 1;
-    return 2;
-}
-
-
 /*
     Calcula o tamanho de deslocamento
 */
@@ -90,19 +86,16 @@ function getCardWidth() {
 function updateCarousel() {
 
     const visibleCards = getVisibleCards();
-    const rows = getRows();
-
-    const totalColumns = Math.ceil(cards.length / rows);
-
-    const maxIndex = Math.max(0, totalColumns - visibleCards);
+    const maxIndex = Math.max(0, cards.length - visibleCards);
 
     currentIndex = Math.min(currentIndex, maxIndex);
 
     const movement = currentIndex * getCardWidth();
 
+    track.style.transition = "";
     track.style.transform = `translateX(-${movement}px)`;
 
-    const progress = ((currentIndex + visibleCards) / totalColumns) * 100;
+    const progress = ((currentIndex + visibleCards) / cards.length) * 100;
     progressBar.style.width = `${Math.min(progress, 100)}%`;
 
 }
@@ -112,44 +105,6 @@ function updateCarousel() {
     Próximo
 */
 
-nextButton.addEventListener("click", () => {
-
-    const visibleCards = getVisibleCards();
-    const rows = getRows();
-    const totalColumns = Math.ceil(cards.length / rows);
-    const maxIndex = Math.max(0, totalColumns - visibleCards);
-
-    if (currentIndex < maxIndex) {
-        currentIndex++;
-    } else {
-        currentIndex = 0;
-    }
-
-    updateCarousel();
-
-});
-
-
-/*
-    Anterior
-*/
-
-prevButton.addEventListener("click", () => {
-
-    const visibleCards = getVisibleCards();
-    const rows = getRows();
-    const totalColumns = Math.ceil(cards.length / rows);
-    const maxIndex = Math.max(0, totalColumns - visibleCards);
-
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = maxIndex;
-    }
-
-    updateCarousel();
-
-});
 
 
 /*
@@ -171,15 +126,22 @@ let startX = 0;
 let currentX = 0;
 let isDragging = false;
 let activePointerId = null;
+let suppressCardClick = false;
+let dragStartIndex = 0;
+let dragBaseMovement = 0;
 
 track.addEventListener("pointerdown", (event) => {
 
     // start potential drag but do not immediately capture pointer
     isDragging = false;
+    suppressCardClick = false;
 
     startX = event.clientX;
     currentX = startX;
     activePointerId = event.pointerId;
+    dragStartIndex = currentIndex;
+    dragBaseMovement = currentIndex * getCardWidth();
+    track.style.transition = "none";
 
 });
 
@@ -192,11 +154,20 @@ track.addEventListener("pointermove", (event) => {
     // if movement exceeds threshold, enable dragging and capture pointer
     if (!isDragging && Math.abs(startX - currentX) > 10) {
         isDragging = true;
+        suppressCardClick = true;
         try {
             track.setPointerCapture(event.pointerId);
         } catch (e) {
             // ignore if capture fails
         }
+    }
+
+    if (isDragging) {
+        const dragMovement = dragBaseMovement - (currentX - startX);
+        const maxMovement = Math.max(0, cards.length - getVisibleCards()) * getCardWidth();
+        const constrainedMovement = Math.max(-getCardWidth() * 0.25,
+            Math.min(maxMovement + getCardWidth() * 0.25, dragMovement));
+        track.style.transform = `translateX(-${constrainedMovement}px)`;
     }
 
 });
@@ -214,13 +185,21 @@ track.addEventListener("pointerup", (event) => {
 
     const difference = startX - currentX;
 
-    if (Math.abs(difference) > 50) {
+    if (Math.abs(difference) > 35) {
+        const cardsMoved = Math.round(Math.abs(difference) / getCardWidth());
         if (difference > 0) {
-            nextButton.click();
+            currentIndex = Math.min(dragStartIndex + Math.max(1, cardsMoved), cards.length - getVisibleCards());
         } else {
-            prevButton.click();
+            currentIndex = Math.max(0, dragStartIndex - Math.max(1, cardsMoved));
         }
+    } else {
+        currentIndex = dragStartIndex;
     }
+
+    updateCarousel();
+    setTimeout(() => {
+        suppressCardClick = false;
+    }, 150);
 
     // release pointer capture if held
     try {
@@ -249,14 +228,16 @@ track.addEventListener("pointercancel", () => {
 document.addEventListener("keydown", (event) => {
 
     if (event.key === "ArrowRight") {
-
-        nextButton.click();
+        const maxIndex = Math.max(0, cards.length - getVisibleCards());
+        currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+        updateCarousel();
 
     }
 
     if (event.key === "ArrowLeft") {
-
-        prevButton.click();
+        const maxIndex = Math.max(0, cards.length - getVisibleCards());
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+        updateCarousel();
 
     }
 
@@ -479,14 +460,16 @@ if (modal && modalOverlay && modalClose) {
 
     cards.forEach(card => {
         // attach to the article
-        card.addEventListener('click', () => openModal(card));
+        card.addEventListener('click', () => {
+            if (!suppressCardClick) openModal(card);
+        });
 
         // also attach directly to the image to bypass pointer capture on the track
         const img = card.querySelector('img');
         if (img) {
             img.addEventListener('click', (e) => {
                 e.stopPropagation();
-                openModal(card);
+                if (!suppressCardClick) openModal(card);
             });
         }
 
@@ -502,6 +485,7 @@ if (modal && modalOverlay && modalClose) {
     document.querySelectorAll('.view-all').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
+            if (suppressCardClick) return;
             // find nearest card
             const card = btn.closest('.champion-card');
             if (card) openModal(card);
